@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velvet Moon Books - متجر الكتب والروايات</title>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f5f1e8;
+            --bg-secondary: #e8dcc8;
+            --text-primary: #3d2817;
+            --text-secondary: #6b5842;
+            --accent-warm: #8b6f47;
+            --accent-cream: #d4a574;
+            --accent-brown: #6d5638;
+            --accent-hover: #a67c52;
+            --border-color: #d4c4a8;
+            --shadow: rgba(109, 86, 56, 0.2);
+        }
+
+        body.dark-mode {
+            --bg-primary: #2d2416;
+            --bg-secondary: #3d3426;
+            --text-primary: #f5f1e8;
+            --text-secondary: #d4c4a8;
+            --accent-warm: #8b6f47;
+            --accent-cream: #d4a574;
+            --accent-brown: #a67c52;
+            --accent-hover: #c49b6b;
+            --border-color: #5a4a3a;
+            --shadow: rgba(139, 111, 71, 0.3);
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Scheherazade New', 'Amiri', 'Noto Sans Arabic', 'Tajawal', 'Cairo', 'Noto Kufi Arabic', 'Almarai', 'Arial', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-secondary);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            color: var(--accent-brown);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover h1 {
+            color: var(--accent-hover);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-brown);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-cream);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            background-color: var(--accent-brown);
+            border-color: var(--accent-brown);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--accent-cream);
+            color: var(--text-primary);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            font-family: 'Scheherazade New', 'Amiri', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 2.2;
+            opacity: 0.95;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 20px;
+        }
+
+        .categories h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--accent-brown);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: var(--bg-secondary);
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid var(--accent-brown);
+            box-shadow: 0 4px 15px var(--shadow);
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px var(--shadow);
+            border-color: var(--accent-hover);
+            background-color: var(--accent-cream);
+        }
+
+        .category-card h4 {
+            font-size: 1.6rem;
+            color: var(--accent-brown);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 2.5rem;
+        }
+
+        /* Books Section */
+        .books-section {
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent-brown);
+            border-bottom: 3px solid var(--accent-brown);
+            padding-bottom: 10px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .book-card {
+            background-color: var(--bg-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background: var(--accent-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent-brown);
+        }
+
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            padding: 20px;
+        }
+
+        .book-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            min-height: 60px;
+        }
+
+        .book-price {
+            font-size: 1.5rem;
+            color: var(--accent-brown);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-brown);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        /* Instagram Button */
+        .instagram-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #e4405f;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(228, 64, 95, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [dir="rtl"] .instagram-btn {
+            right: auto;
+            left: 30px;
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(228, 64, 95, 0.6);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90%;
+            overflow-y: auto;
+            box-shadow: 0 10px 50px var(--shadow);
+        }
+
+        .modal-content.large {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h3 {
+            color: var(--accent-brown);
+            font-size: 1.8rem;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-brown);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group textarea {
+            min-height: 400px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-brown);
+        }
+
+        .books-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .book-item {
+            background-color: var(--bg-primary);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .book-item-info {
+            flex: 1;
+        }
+
+        .book-item-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: var(--accent-brown);
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        .btn-edit:hover,
+        .btn-delete:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 3px solid var(--accent-brown);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: var(--accent-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Code Editor Styles */
+        .code-editor-info {
+            background-color: var(--bg-primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px solid var(--accent-brown);
+        }
+
+        .code-editor-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .code-editor-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-controls {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .instagram-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            [dir="rtl"] .instagram-btn {
+                right: auto;
+                left: 20px;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+
+            .modal-content.large {
+                max-width: 95%;
+            }
+
+            .book-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .book-item-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .code-editor-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header>
+   <div class="container">
+    <div class="header-content">
+     <div class="logo">
+      <h1 id="storeName">Velvet Moon Books</h1>
+     </div>
+     <div class="header-controls"><button class="icon-btn" id="adminBtn" aria-label="Admin" title="تعديل">⚙️</button> <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀️</button> <button class="btn btn-primary" id="langToggle">English</button>
+     </div>
+    </div>
+   </div>
+  </header><!-- Hero Section -->
+  <section class="hero">
+   <h2 id="heroTitle">Velvet Moon Books</h2>
+   <p id="heroTagline">بعض الكتب لا تُقرأ… بل تُعاش.</p>
+  </section><!-- Categories Section -->
+  <section class="categories">
+   <div class="container">
+    <h3 id="categoriesTitle">الأقسام</h3>
+    <div class="category-grid">
+     <div class="category-card" data-category="novels">
+      <h4 id="cat-novels">الروايات</h4>
+      <p>📚</p>
+     </div>
+     <div class="category-card" data-category="business">
+      <h4 id="cat-business">المال والأعمال</h4>
+      <p>💼</p>
+     </div>
+     <div class="category-card" data-category="self-development">
+      <h4 id="cat-self">تطوير الذات</h4>
+      <p>🌱</p>
+     </div>
+     <div class="category-card" data-category="philosophy">
+      <h4 id="cat-philosophy">الفلسفة
+     </h4>
+      <p>🧠</p>
+     </div>
+     <div class="category-card" data-category="history">
+      <h4 id="cat-history">التاريخ</h4>
+      <p>📜</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Books Sections -->
+  <div class="container" id="booksContainer"><!-- Books will be dynamically loaded here -->
+  </div><!-- Footer -->
+  <footer>
+   <p id="footerText">تابعنا على إنستغرام: <a href="https://www.instagram.com/velvet.m0on2" target="_blank" rel="noopener noreferrer">@velvet.m0on2</a></p>
+  </footer><!-- Instagram Button --> <a href="https://www.instagram.com/velvet.m0on2" target="_blank" rel="noopener noreferrer" class="instagram-btn" aria-label="Instagram">📷</a> <!-- Code Editor Modal -->
+  <div class="modal" id="codeEditorModal">
+   <div class="modal-content large">
+    <div class="modal-header">
+     <h3 id="codeEditorTitle">محرر الكود 💻</h3><button class="close-btn" id="closeCodeEditorModal">×</button>
+    </div>
+    <div class="code-editor-info">
+     <p id="codeEditorInfo">⚠️ تنبيه: هذا محرر الكود المتقدم - يمكنك تعديل الأكواد مباشرة. تأكد من معرفتك بـ HTML/CSS/JavaScript قبل التعديل.</p>
+     <p id="codeEditorWarning">💡 نصيحة: احتفظ بنسخة احتياطية من الكود قبل التعديل. الأخطاء في الكود قد تؤدي لتعطل الموقع.</p>
+    </div>
+    <div class="form-group"><label for="htmlCode" id="htmlCodeLabel">كود HTML/CSS/JavaScript:</label> <textarea id="htmlCode" placeholder="الكود الكامل للموقع..."></textarea>
+    </div>
+    <div class="code-editor-actions"><button class="btn btn-primary" id="applyCodeBtn">تطبيق التغييرات ✅</button> <button class="btn btn-secondary" id="resetCodeBtn">إعادة تحميل الكود الأصلي 🔄</button>
+    </div>
+   </div>
+  </div><!-- Password Modal -->
+  <div class="modal" id="passwordModal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h3 id="passwordTitle">كلمة المرور</h3><button class="close-btn" id="closePasswordModal">×</button>
+    </div>
+    <div class="form-group"><label for="adminPassword" id="passwordLabel">أدخل كلمة المرور:</label> <input type="password" id="adminPassword" placeholder="••••••••••">
+    </div><button class="btn btn-primary" id="submitPassword">دخول</button>
+   </div>
+  </div><!-- Admin Panel Modal -->
+  <div class="modal" id="adminModal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h3 id="adminTitle">لوحة التحكم</h3><button class="close-btn" id="closeAdminModal">×</button>
+    </div>
+    <div class="form-group"><label for="bookTitle" id="bookTitleLabel">اسم الكتاب:</label> <input type="text" id="bookTitle" placeholder="اسم الكتاب">
+    </div>
+    <div class="form-group"><label for="bookPrice" id="bookPriceLabel">السعر:</label> <input type="text" id="bookPrice" placeholder="مثال: 15 USD">
+    </div>
+    <div class="form-group"><label for="bookImage" id="bookImageLabel">رابط الصورة:</label> <input type="text" id="bookImage" placeholder="https://example.com/image.jpg">
+    </div>
+    <div class="form-group"><label for="bookCategory" id="bookCategoryLabel">القسم:</label> <select id="bookCategory"> <option value="novels">الروايات</option> <option value="business">المال والأعمال</option> <option value="self-development">تطوير الذات</option> <option value="philosophy">الفلسفة</option> <option value="history">التاريخ</option> </select>
+    </div><button class="btn btn-primary" id="addBookBtn">إضافة كتاب</button>
+    <div class="books-list" id="booksList"><!-- Books list will be dynamically loaded here -->
+    </div>
+   </div>
+  </div>
+  <script>
+        // Translations
+        const translations = {
+            ar: {
+                storeName: "Velvet Moon Books",
+                heroTitle: "Velvet Moon Books",
+                heroTagline: "بعض الكتب لا تُقرأ… بل تُعاش.",
+                categoriesTitle: "الأقسام",
+                novels: "الروايات",
+                business: "المال والأعمال",
+                selfDevelopment: "تطوير الذات",
+                philosophy: "الفلسفة",
+                history: "التاريخ",
+                buyBook: "شراء الكتاب",
+                passwordTitle: "كلمة المرور",
+                passwordLabel: "أدخل كلمة المرور:",
+                submit: "دخول",
+                adminTitle: "لوحة التحكم",
+                bookTitleLabel: "اسم الكتاب:",
+                bookPriceLabel: "السعر:",
+                bookImageLabel: "رابط الصورة:",
+                bookCategoryLabel: "القسم:",
+                addBook: "إضافة كتاب",
+                edit: "تعديل",
+                delete: "حذف",
+                footerText: "تابعنا على إنستغرام:",
+                langToggle: "English",
+                emptyCategory: "لا توجد كتب في هذا القسم حالياً",
+                instagramMessage: "مرحبًا، أرغب بشراء كتاب:",
+                codeEditorTitle: "محرر الكود 💻",
+                codeEditorInfo: "⚠️ تنبيه: هذا محرر الكود المتقدم - يمكنك تعديل الأكواد مباشرة. تأكد من معرفتك بـ HTML/CSS/JavaScript قبل التعديل.",
+                codeEditorWarning: "💡 نصيحة: احتفظ بنسخة احتياطية من الكود قبل التعديل. الأخطاء في الكود قد تؤدي لتعطل الموقع.",
+                htmlCodeLabel: "كود HTML/CSS/JavaScript:",
+                applyCodeBtn: "تطبيق التغييرات ✅",
+                resetCodeBtn: "إعادة تحميل الكود الأصلي 🔄"
+            },
+            en: {
+                storeName: "Velvet Moon Books",
+                heroTitle: "Velvet Moon Books",
+                heroTagline: "Some books are not read… they are lived.",
+                categoriesTitle: "Categories",
+                novels: "Novels",
+                business: "Business & Money",
+                selfDevelopment: "Self Development",
+                philosophy: "Philosophy",
+                history: "History",
+                buyBook: "Buy Book",
+                passwordTitle: "Password",
+                passwordLabel: "Enter Password:",
+                submit: "Submit",
+                adminTitle: "Admin Panel",
+                bookTitleLabel: "Book Title:",
+                bookPriceLabel: "Price:",
+                bookImageLabel: "Image URL:",
+                bookCategoryLabel: "Category:",
+                addBook: "Add Book",
+                edit: "Edit",
+                delete: "Delete",
+                footerText: "Follow us on Instagram:",
+                langToggle: "عربي",
+                emptyCategory: "No books in this category yet",
+                instagramMessage: "Hello, I would like to buy the book:",
+                codeEditorTitle: "Code Editor 💻",
+                codeEditorInfo: "⚠️ Warning: This is the advanced code editor - you can edit the code directly. Make sure you know HTML/CSS/JavaScript before editing.",
+                codeEditorWarning: "💡 Tip: Keep a backup of the code before editing. Code errors may break the website.",
+                htmlCodeLabel: "HTML/CSS/JavaScript Code:",
+                applyCodeBtn: "Apply Changes ✅",
+                resetCodeBtn: "Reload Original Code 🔄"
+            }
+        };
+
+        // Initialize app state
+        let currentLang = localStorage.getItem('language') || 'ar';
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        let books = JSON.parse(localStorage.getItem('books')) || [];
+        let editingBookId = null;
+
+        // Initialize app
+        function init() {
+            applyTheme();
+            applyLanguage();
+            // Add sample books if none exist
+            if (books.length === 0) {
+                books = [
+                    { id: 1, title: "دليل العروض والتخفيضات", price: "10 USD", image: "", category: "business" },
+                    { id: 2, title: "استراتيجيات التسويق بالعروض", price: "15 USD", image: "", category: "business" },
+                    { id: 3, title: "كيفية جذب العملاء بالتخفيضات", price: "12 USD", image: "", category: "self-development" },
+                    { id: 4, title: "عروض خاصة للنجاح التجاري", price: "18 USD", image: "", category: "business" },
+                    { id: 5, title: "التخفيضات والعروض في التجارة الإلكترونية", price: "14 USD", image: "", category: "business" },
+                    { id: 6, title: "كيفية إدارة العروض الموسمية", price: "16 USD", image: "", category: "business" },
+                    { id: 7, title: "التسويق بالتخفيضات الفعال", price: "11 USD", image: "", category: "self-development" },
+                    { id: 8, title: "عروض البيع بالجملة", price: "19 USD", image: "", category: "business" },
+                    { id: 9, title: "استراتيجيات التخفيضات الناجحة", price: "13 USD", image: "", category: "business" },
+                    { id: 10, title: "كيفية تحقيق الأرباح من العروض", price: "17 USD", image: "", category: "self-development" },
+                    { id: 11, title: "العروض والتخفيضات في التجزئة", price: "20 USD", image: "", category: "business" },
+                    { id: 12, title: "دليل التسويق بالعروض اليومي", price: "9 USD", image: "", category: "business" }
+                ];
+                localStorage.setItem('books', JSON.stringify(books));
+            }
+            renderBooks();
+            setupEventListeners();
+        }
+
+        // Theme Management
+        function applyTheme() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeToggle').textContent = '🌙';
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.getElementById('themeToggle').textContent = '☀️';
+            }
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            applyTheme();
+        }
+
+        // Language Management
+        function applyLanguage() {
+            const lang = translations[currentLang];
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            document.getElementById('storeName').textContent = lang.storeName;
+            document.getElementById('heroTitle').textContent = lang.heroTitle;
+            document.getElementById('heroTagline').textContent = lang.heroTagline;
+            document.getElementById('categoriesTitle').textContent = lang.categoriesTitle;
+            document.getElementById('cat-novels').textContent = lang.novels;
+            document.getElementById('cat-business').textContent = lang.business;
+            document.getElementById('cat-self').textContent = lang.selfDevelopment;
+            document.getElementById('cat-philosophy').textContent = lang.philosophy;
+            document.getElementById('cat-history').textContent = lang.history;
+            document.getElementById('passwordTitle').textContent = lang.passwordTitle;
+            document.getElementById('passwordLabel').textContent = lang.passwordLabel;
+            document.getElementById('submitPassword').textContent = lang.submit;
+            document.getElementById('adminTitle').textContent = lang.adminTitle;
+            document.getElementById('bookTitleLabel').textContent = lang.bookTitleLabel;
+            document.getElementById('bookPriceLabel').textContent = lang.bookPriceLabel;
+            document.getElementById('bookImageLabel').textContent = lang.bookImageLabel;
+            document.getElementById('bookCategoryLabel').textContent = lang.bookCategoryLabel;
+            document.getElementById('addBookBtn').textContent = lang.addBook;
+            document.getElementById('footerText').innerHTML = `${lang.footerText} <a href="https://www.instagram.com/velvet.m0on2" target="_blank" rel="noopener noreferrer">@velvet.m0on2</a>`;
+            document.getElementById('langToggle').textContent = lang.langToggle;
+            document.getElementById('codeEditorTitle').textContent = lang.codeEditorTitle;
+            document.getElementById('codeEditorInfo').textContent = lang.codeEditorInfo;
+            document.getElementById('codeEditorWarning').textContent = lang.codeEditorWarning;
+            document.getElementById('htmlCodeLabel').textContent = lang.htmlCodeLabel;
+            document.getElementById('applyCodeBtn').textContent = lang.applyCodeBtn;
+            document.getElementById('resetCodeBtn').textContent = lang.resetCodeBtn;
+
+            // Update category options
+            const categorySelect = document.getElementById('bookCategory');
+            categorySelect.innerHTML = `
+                <option value="novels">${lang.novels}</option>
+                <option value="business">${lang.business}</option>
+                <option value="self-development">${lang.selfDevelopment}</option>
+                <option value="philosophy">${lang.philosophy}</option>
+                <option value="history">${lang.history}</option>
+            `;
+
+            renderBooks();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('language', currentLang);
+            applyLanguage();
+        }
+
+        // Books Management
+        let currentCategory = null;
+
+        function showOnlyCategory(categoryKey) {
+            currentCategory = categoryKey;
+            document.querySelector('.categories').style.display = 'none';
+            renderBooks();
+        }
+
+        function showAllCategories() {
+            currentCategory = null;
+            document.querySelector('.categories').style.display = 'block';
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const container = document.getElementById('booksContainer');
+            container.innerHTML = '';
+
+            const categories = {
+                'novels': translations[currentLang].novels,
+                'business': translations[currentLang].business,
+                'self-development': translations[currentLang].selfDevelopment,
+                'philosophy': translations[currentLang].philosophy,
+                'history': translations[currentLang].history
+            };
+
+            // Only show books if a specific category is selected
+            if (currentCategory) {
+                const backBtn = document.createElement('button');
+                backBtn.className = 'btn btn-primary';
+                backBtn.textContent = currentLang === 'ar' ? '← العودة للأقسام' : '← Back to Categories';
+                backBtn.style.marginBottom = '30px';
+                backBtn.onclick = showAllCategories;
+                container.appendChild(backBtn);
+
+                const categoryBooks = books.filter(book => book.category === currentCategory);
+                
+                const section = document.createElement('section');
+                section.className = 'books-section';
+                section.id = currentCategory;
+                
+                const title = document.createElement('h3');
+                title.className = 'section-title';
+                title.textContent = categories[currentCategory];
+                section.appendChild(title);
+
+                if (categoryBooks.length === 0) {
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'empty-state';
+                    emptyState.innerHTML = `<p>${translations[currentLang].emptyCategory}</p>`;
+                    section.appendChild(emptyState);
+                } else {
+                    const grid = document.createElement('div');
+                    grid.className = 'books-grid';
+                    
+                    categoryBooks.forEach(book => {
+                        const card = createBookCard(book);
+                        grid.appendChild(card);
+                    });
+                    
+                    section.appendChild(grid);
+                }
+                
+                container.appendChild(section);
+            }
+            // If no category selected, don't show any books (only show category buttons)
+        }
+
+        function createBookCard(book) {
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'book-image';
+            
+            if (book.image) {
+                const img = document.createElement('img');
+                img.src = book.image;
+                img.alt = book.title;
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    imageDiv.textContent = '📖';
+                };
+                imageDiv.appendChild(img);
+            } else {
+                imageDiv.textContent = '📖';
+            }
+            
+            const info = document.createElement('div');
+            info.className = 'book-info';
+            
+            const title = document.createElement('h4');
+            title.className = 'book-title';
+            title.textContent = book.title;
+            
+            const price = document.createElement('p');
+            price.className = 'book-price';
+            price.textContent = book.price;
+            
+            const buyBtn = document.createElement('button');
+            buyBtn.className = 'buy-btn';
+            buyBtn.textContent = translations[currentLang].buyBook;
+            buyBtn.onclick = () => buyBook(book.title);
+            
+            info.appendChild(title);
+            info.appendChild(price);
+            info.appendChild(buyBtn);
+            
+            card.appendChild(imageDiv);
+            card.appendChild(info);
+            
+            return card;
+        }
+
+        function buyBook(bookTitle) {
+            const message = `${translations[currentLang].instagramMessage} ${bookTitle}`;
+            const encodedMessage = encodeURIComponent(message);
+            const instagramURL = `https://www.instagram.com/velvet.m0on2`;
+            window.open(instagramURL, '_blank', 'noopener,noreferrer');
+        }
+
+        function addOrUpdateBook() {
+            const title = document.getElementById('bookTitle').value.trim();
+            const price = document.getElementById('bookPrice').value.trim();
+            const image = document.getElementById('bookImage').value.trim();
+            const category = document.getElementById('bookCategory').value;
+
+            if (!title || !price) {
+                return;
+            }
+
+            if (editingBookId !== null) {
+                const bookIndex = books.findIndex(b => b.id === editingBookId);
+                if (bookIndex !== -1) {
+                    books[bookIndex] = {
+                        ...books[bookIndex],
+                        title,
+                        price,
+                        image,
+                        category
+                    };
+                }
+                editingBookId = null;
+                document.getElementById('addBookBtn').textContent = translations[currentLang].addBook;
+            } else {
+                const newBook = {
+                    id: Date.now(),
+                    title,
+                    price,
+                    image,
+                    category
+                };
+                books.push(newBook);
+            }
+
+            localStorage.setItem('books', JSON.stringify(books));
+            
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('bookPrice').value = '';
+            document.getElementById('bookImage').value = '';
+            
+            renderBooks();
+            renderAdminBooksList();
+        }
+
+        function editBook(id) {
+            const book = books.find(b => b.id === id);
+            if (book) {
+                document.getElementById('bookTitle').value = book.title;
+                document.getElementById('bookPrice').value = book.price;
+                document.getElementById('bookImage').value = book.image;
+                document.getElementById('bookCategory').value = book.category;
+                editingBookId = id;
+                document.getElementById('addBookBtn').textContent = translations[currentLang].edit;
+            }
+        }
+
+        function deleteBook(id) {
+            books = books.filter(b => b.id !== id);
+            localStorage.setItem('books', JSON.stringify(books));
+            renderBooks();
+            renderAdminBooksList();
+        }
+
+        function renderAdminBooksList() {
+            const listContainer = document.getElementById('booksList');
+            listContainer.innerHTML = '';
+
+            if (books.length === 0) {
+                listContainer.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">لا توجد كتب</p>';
+                return;
+            }
+
+            books.forEach(book => {
+                const item = document.createElement('div');
+                item.className = 'book-item';
+                
+                const info = document.createElement('div');
+                info.className = 'book-item-info';
+                info.innerHTML = `<strong>${book.title}</strong><br><span style="color: var(--text-secondary);">${book.price}</span>`;
+                
+                const actions = document.createElement('div');
+                actions.className = 'book-item-actions';
+                
+                const editBtn = document.createElement('button');
+                editBtn.className = 'btn-small btn-edit';
+                editBtn.textContent = translations[currentLang].edit;
+                editBtn.onclick = () => editBook(book.id);
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'btn-small btn-delete';
+                deleteBtn.textContent = translations[currentLang].delete;
+                deleteBtn.onclick = () => deleteBook(book.id);
+                
+                actions.appendChild(editBtn);
+                actions.appendChild(deleteBtn);
+                
+                item.appendChild(info);
+                item.appendChild(actions);
+                
+                listContainer.appendChild(item);
+            });
+        }
+
+        // Code Editor Functions
+        function openCodeEditor() {
+            const currentHTML = document.documentElement.outerHTML;
+            document.getElementById('htmlCode').value = currentHTML;
+            document.getElementById('codeEditorModal').classList.add('active');
+        }
+
+        function applyCodeChanges() {
+            const newCode = document.getElementById('htmlCode').value;
+            try {
+                // Save to localStorage for persistence
+                localStorage.setItem('customCode', newCode);
+                // Reload with new code
+                document.open();
+                document.write(newCode);
+                document.close();
+            } catch (error) {
+                const errorMsg = currentLang === 'ar' ? 
+                    'حدث خطأ في تطبيق الكود. تأكد من صحة الكود.' :
+                    'Error applying code. Make sure the code is valid.';
+            }
+        }
+
+        function resetCode() {
+            localStorage.removeItem('customCode');
+            location.reload();
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Logo click
+            document.querySelector('.logo').addEventListener('click', () => {
+                window.open('https://www.instagram.com/velvet.m0on2', '_blank', 'noopener,noreferrer');
+            });
+
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+            // Language toggle
+            document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+
+            // Admin button
+            document.getElementById('adminBtn').addEventListener('click', () => {
+                document.getElementById('passwordModal').classList.add('active');
+            });
+
+            // Password modal
+            document.getElementById('closePasswordModal').addEventListener('click', () => {
+                document.getElementById('passwordModal').classList.remove('active');
+                document.getElementById('adminPassword').value = '';
+            });
+
+            document.getElementById('submitPassword').addEventListener('click', () => {
+                const password = document.getElementById('adminPassword').value;
+                if (password === 'alaa.alemam') {
+                    document.getElementById('passwordModal').classList.remove('active');
+                    document.getElementById('adminModal').classList.add('active');
+                    document.getElementById('adminPassword').value = '';
+                    renderAdminBooksList();
+                } else {
+                    document.getElementById('adminPassword').value = '';
+                    document.getElementById('adminPassword').placeholder = currentLang === 'ar' ? 'كلمة مرور خاطئة' : 'Wrong password';
+                    setTimeout(() => {
+                        document.getElementById('adminPassword').placeholder = '••••••••••';
+                    }, 2000);
+                }
+            });
+
+            // Admin modal
+            document.getElementById('closeAdminModal').addEventListener('click', () => {
+                document.getElementById('adminModal').classList.remove('active');
+                editingBookId = null;
+                document.getElementById('bookTitle').value = '';
+                document.getElementById('bookPrice').value = '';
+                document.getElementById('bookImage').value = '';
+                document.getElementById('addBookBtn').textContent = translations[currentLang].addBook;
+            });
+
+            document.getElementById('addBookBtn').addEventListener('click', addOrUpdateBook);
+
+            // Password enter key
+            document.getElementById('adminPassword').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('submitPassword').click();
+                }
+            });
+
+            // Category cards click
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const category = card.dataset.category;
+                    showOnlyCategory(category);
+                });
+            });
+        }
+
+        // Check for custom code on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const customCode = localStorage.getItem('customCode');
+            if (customCode && customCode !== document.documentElement.outerHTML) {
+                // If there's custom code, it would have already been loaded
+                // This is just a fallback check
+            }
+            init();
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af1bd44b56f26ad',t:'MTc2NTkyNTQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
